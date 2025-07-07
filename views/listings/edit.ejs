@@ -1,0 +1,132 @@
+<% layout("layouts/boilerPlate") %>
+
+<form method="POST" action="/listing/<%= data._id %>?_method=PUT" novalidate class="new_form needs-validation" enctype="multipart/form-data">
+  <h2 class="mb-4">Edit Car Listing</h2>
+
+  <!-- Car Info -->
+  <div class="mb-3">
+    <label for="car_name" class="form-label">Car Name / Model</label>
+    <input type="text" class="form-control" id="car_name" name="car[name]" value="<%= data.name %>" required>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+      <label for="brand" class="form-label">Brand</label>
+      <input type="text" class="form-control" id="brand" name="car[brand]" value="<%= data.brand %>" required>
+    </div>
+    <div class="col">
+      <label for="year" class="form-label">Year</label>
+      <input type="number" class="form-control" id="year" name="car[year]" value="<%= data.year %>" required>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="image" class="form-label">Image URL</label>
+    <input type="file" class="form-control" id="image" name="car[image]"  >
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" id="description" name="car[description]" rows="3" required><%= data.description %></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="kmDriven" class="form-label">Kilometers Driven</label>
+    <input type="number" class="form-control" id="kmDriven" name="car[km_driven]" value="<%= data.km_driven %>" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="present_price" class="form-label">Present Price (in lakhs)</label>
+    <input type="number" step="0.01" class="form-control" id="present_price" name="car[present_price]" value="<%= data.present_price %>" required>
+  </div>
+
+  <hr class="my-4">
+
+  <!-- Car Details -->
+  <div class="mb-3">
+    <label for="numberPlate" class="form-label">Number Plate</label>
+    <input type="text" class="form-control" id="numberPlate" name="carDetail[numberPlate]" value="<%= data.carDetails.numberPlate %>" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="color" class="form-label">Color</label>
+    <input type="text" class="form-control" id="color" name="carDetail[color]" value="<%= data.carDetails.color %>" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="fuel_type" class="form-label">Fuel Type</label>
+    <select class="form-select" name="carDetail[fuel_type]" required>
+      <option value="Petrol" <%= data.carDetails.fuel_type === 'Petrol' ? 'selected' : '' %>>Petrol</option>
+      <option value="Diesel" <%= data.carDetails.fuel_type === 'Diesel' ? 'selected' : '' %>>Diesel</option>
+      <option value="CNG" <%= data.carDetails.fuel_type === 'CNG' ? 'selected' : '' %>>CNG</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="seller_type" class="form-label">Seller Type</label>
+    <select class="form-select" name="carDetail[seller_type]" required>
+      <option value="Dealer" <%= data.carDetails.seller_type === 'Dealer' ? 'selected' : '' %>>Dealer</option>
+      <option value="Trustmark Dealer" <%= data.carDetails.seller_type === 'Trustmark Dealer' ? 'selected' : '' %>>Trustmark Dealer</option>
+      <option value="Individual" <%= data.carDetails.seller_type === 'Individual' ? 'selected' : '' %>>Individual</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="transmission" class="form-label">Transmission</label>
+    <select class="form-select" name="carDetail[transmission]" required>
+      <option value="Manual" <%= data.carDetails.transmission === 'Manual' ? 'selected' : '' %>>Manual</option>
+      <option value="Automatic" <%= data.carDetails.transmission === 'Automatic' ? 'selected' : '' %>>Automatic</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="owner" class="form-label">Owner History</label>
+    <select class="form-select" name="carDetail[owner]" required>
+      <option value="First Owner" <%= data.carDetails.owner === 'First Owner' ? 'selected' : '' %>>First Owner</option>
+      <option value="Second Owner" <%= data.carDetails.owner === 'Second Owner' ? 'selected' : '' %>>Second Owner</option>
+      <option value="Third Owner" <%= data.carDetails.owner === 'Third Owner' ? 'selected' : '' %>>Third Owner</option>
+      <option value="Fourth Owner" <%= data.carDetails.owner === 'Fourth Owner' ? 'selected' : '' %>>Fourth Owner</option>
+      <option value="Fourth & Above Owner" <%= data.carDetails.owner === 'Fourth & Above Owner' ? 'selected' : '' %>>Fourth & Above Owner</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="service_cost" class="form-label">Average Service Cost (₹)</label>
+    <input type="number" step="0.01" class="form-control" id="service_cost" name="carDetail[service_cost]" value="<%= data.carDetails.service_cost %>" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="modifications" class="form-label">Modifications</label>
+    <select class="form-select" name="carDetail[modifications]" required>
+      <option value="Yes" <%= data.carDetails.modifications === 'Yes' ? 'selected' : '' %>>Yes</option>
+      <option value="No" <%= data.carDetails.modifications === 'No' ? 'selected' : '' %>>No</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="accidents" class="form-label">Past Accidents</label>
+    <select class="form-select" name="carDetail[accidents]" required>
+      <option value="Yes" <%= data.carDetails.accidents === 'Yes' ? 'selected' : '' %>>Yes</option>
+      <option value="No" <%= data.carDetails.accidents === 'No' ? 'selected' : '' %>>No</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="insurance_valid" class="form-label">Insurance Valid?</label>
+    <select class="form-select" name="carDetail[insurance_valid]" required>
+      <option value="Yes" <%= data.carDetails.insurance_valid === 'Yes' ? 'selected' : '' %>>Yes</option>
+      <option value="No" <%= data.carDetails.insurance_valid === 'No' ? 'selected' : '' %>>No</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="service_history" class="form-label">Service History</label>
+    <select class="form-select" name="carDetail[service_history]" required>
+      <option value="Incomplete" <%= data.carDetails.service_history === 'Incomplete' ? 'selected' : '' %>>Incomplete</option>
+      <option value="Partial" <%= data.carDetails.service_history === 'Partial' ? 'selected' : '' %>>Partial</option>
+      <option value="Complete" <%= data.carDetails.service_history === 'Complete' ? 'selected' : '' %>>Complete</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update Listing</button>
+</form>

@@ -1,0 +1,33 @@
+<% layout("layouts/boilerPlate") -%>
+
+<div class="row mt-3">
+    <div class="col-6 offset-3">
+   <form  method="post" action="/signup" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="username" class="form-label">userName</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+    </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1"  name="password" required>
+  </div>
+  <div class="mb-3">
+    <label for="license" class="form-label">upload license</label>
+    <input type="file" name="license" id="license" class="form-control" >
+  </div>
+  <div>
+    <label for="aadhar">entry your aadhar</label>
+    <input type="text" class="form-control" name="aadhar">
+  </div>
+
+   
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+    </div>
+</div>

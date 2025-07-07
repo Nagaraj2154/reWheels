@@ -1,0 +1,145 @@
+<% layout("layouts/boilerPlate") -%>
+
+<form method="post" action="/listing" novalidate class="new_form needs-validation" enctype="multipart/form-data">
+  <h2 class="mb-4">Sell Your Car</h2>
+
+  <!-- Car Info -->
+  <div class="mb-3">
+    <label for="car_name" class="form-label">Car Name / Model</label>
+    <input type="text" class="form-control" id="car_name" name="car[name]" required>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+      <label for="brand" class="form-label">Brand</label>
+      <input type="text" class="form-control" id="brand" name="car[brand]" required>
+    </div>
+    <div class="col">
+      <label for="year" class="form-label">Year</label>
+      <input type="number" class="form-control" id="year" name="car[year]" required>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="image" class="form-label">Image URL</label>
+    <input type="file" class="form-control" id="image" name="car[image]" required >
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" id="description" name="car[description]" rows="3" required></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="kmDriven" class="form-label">Kilometers Driven</label>
+    <input type="number" class="form-control" id="kmDriven" name="car[km_driven]" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="present_price" class="form-label">Present Price (in lakhs)</label>
+    <input type="number" step="0.01" class="form-control" id="present_price" name="car[present_price]" required>
+  </div>
+
+  <hr class="my-4">
+
+  <!-- Car Details for Prediction -->
+  <div class="mb-3">
+    <label for="numberPlate" class="form-label">Number Plate</label>
+    <input type="text" class="form-control" id="numberPlate" name="carDetail[numberPlate]" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="color" class="form-label">Color</label>
+    <input type="text" class="form-control" id="color" name="carDetail[color]" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="fuelType" class="form-label">Fuel Type</label>
+    <select class="form-select" id="fuelType" name="carDetail[fuel_type]" required>
+      <option value="">-- Select Fuel Type --</option>
+      <option value="Petrol">Petrol</option>
+      <option value="Diesel">Diesel</option>
+      <option value="CNG">CNG</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="seller_type" class="form-label">Seller Type</label>
+    <select class="form-select" id="seller_type" name="carDetail[seller_type]" required>
+      <option value="">-- Select Seller Type --</option>
+      <option value="Dealer">Dealer</option>
+      <option value="Trustmark Dealer">Trustmark Dealer</option>
+      <option value="Individual">Individual</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="transmission" class="form-label">Transmission</label>
+    <select class="form-select" id="transmission" name="carDetail[transmission]" required>
+      <option value="">-- Select Transmission --</option>
+      <option value="Manual">Manual</option>
+      <option value="Automatic">Automatic</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="owner" class="form-label">Ownership History</label>
+    <select class="form-select" id="owner" name="carDetail[owner]" required>
+      <option value="">-- Select --</option>
+      <option value="First Owner">First Owner</option>
+      <option value="Second Owner">Second Owner</option>
+      <option value="Third Owner">Third Owner</option>
+      <option value="Fourth Owner">Fourth Owner</option>
+      <option value="Fourth & Above Owner">Fourth & Above Owner</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="service_cost" class="form-label">Average Service Cost (in ₹)</label>
+    <input type="number" step="0.01" class="form-control" id="service_cost" name="carDetail[service_cost]" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="modifications" class="form-label">Modifications</label>
+    <select class="form-select" id="modifications" name="carDetail[modifications]" required>
+      <option value="">-- Select --</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="accidents" class="form-label">Past Accidents</label>
+    <select class="form-select" id="accidents" name="carDetail[accidents]" required>
+      <option value="">-- Select --</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="insurance_valid" class="form-label">Insurance Valid?</label>
+    <select class="form-select" id="insurance_valid" name="carDetail[insurance_valid]" required>
+      <option value="">-- Select --</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="service_history" class="form-label">Service History</label>
+    <select class="form-select" id="service_history" name="carDetail[service_history]" required>
+      <option value="">-- Select --</option>
+      <option value="Incomplete">Incomplete</option>
+      <option value="Partial">Partial</option>
+      <option value="Complete">Complete</option>
+    </select>
+  </div>
+
+  <!-- <div class="mb-3">
+    <label for="mileage" class="form-label">Mileage (kmpl)</label>
+    <input type="number" step="0.1" class="form-control" id="mileage" name="carDetail[mileage]">
+  </div> -->
+
+  <button type="submit" class="btn btn-primary">Predict & Submit</button>
+</form>

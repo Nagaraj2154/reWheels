@@ -1,0 +1,58 @@
+ 
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="/utils/logo-removebg-preview.PNG" alt="Logo" style="height: 40px;" class="me-2" />
+      <!-- <span class="fw-bold">CarHub</span> -->
+    </a>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <!-- Left Nav Items -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/listing">Listings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/listing/new">Sell Your Car</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Search Form -->
+      <form class="d-flex me-3" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+      <!-- User Dropdown -->
+      <div class="dropdown">
+        <img src="/utils/image.png" alt="User" style="height: 35px; width: 35px; border-radius: 50%; cursor: pointer;" data-bs-toggle="dropdown" />
+       <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userDropdown">
+
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <% if (!current_user) { %>
+            <li><a class="dropdown-item" href="/login">Login</a></li>
+            <li><a class="dropdown-item" href="/signup">Signup</a></li>
+          <% } else { %>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
